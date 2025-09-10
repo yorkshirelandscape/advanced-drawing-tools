@@ -5,6 +5,8 @@
 
 # Advanced Drawing Tools (Foundry VTT Module)
 
+Originally created by dev7355608.
+
 ![Example 1](images/example1.png)
 
 ## Feature Overview
