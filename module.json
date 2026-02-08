@@ -10,13 +10,9 @@
     {
       "name": "Dawid Izydor",
       "email": "admin@dawid-izydor.pl"
-    },
-    {
-      "name": "Andrew Howard",
-      "email": "andrew.bryce.howard@gmail.com"
     }
   ],
-  "version": "3.0.0",
+  "version": "3.1.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
@@ -32,11 +28,11 @@
       }
     ]
   },
-  "url": "https://github.com/yorkshirelandscape/advanced-drawing-tools",
-  "manifest": "https://raw.githubusercontent.com/yorkshirelandscape/advanced-drawing-tools/main/module.json",
-  "download": "https://github.com/yorkshirelandscape/advanced-drawing-tools/releases/download/v3.0.0/module.zip",
-  "changelog": "https://github.com/yorkshirelandscape/advanced-drawing-tools/releases/tag/v3.0.0",
-  "bugs": "https://github.com/yorkshirelandscape/advanced-drawing-tools/issues",
-  "readme": "https://raw.githubusercontent.com/yorkshirelandscape/advanced-drawing-tools/main/README.md",
-  "license": "https://raw.githubusercontent.com/yorkshirelandscape/advanced-drawing-tools/main/LICENSE"
+  "url": "https://github.com/DawidIzydor/advanced-drawing-tools",
+  "manifest": "https://raw.githubusercontent.com/DawidIzydor/advanced-drawing-tools/main/module.json",
+  "download": "https://github.com/DawidIzydor/advanced-drawing-tools/releases/download/3.1.0/module.zip",
+  "changelog": "https://github.com/DawidIzydor/advanced-drawing-tools/releases/tag/3.1.0",
+  "bugs": "https://github.com/DawidIzydor/advanced-drawing-tools/issues",
+  "readme": "https://raw.githubusercontent.com/DawidIzydor/advanced-drawing-tools/main/README.md",
+  "license": "https://raw.githubusercontent.com/DawidIzydor/advanced-drawing-tools/main/LICENSE"
 }
