@@ -207,3 +207,64 @@ export function cleanData(data, { inplace = false, deletionKeys = false, keepOth
     return data;
 }
 
+/**
+ * Get the offset from center to a specific origin point for a rectangle
+ * @param {string} origin - One of "center", "top-left", "top-right", "bottom-left", "bottom-right"
+ * @param {number} width - Rectangle width
+ * @param {number} height - Rectangle height
+ * @returns {{x: number, y: number}} Offset from center
+ */
+export function getOriginOffset(origin, width, height) {
+    const halfW = width / 2;
+    const halfH = height / 2;
+    
+    switch (origin) {
+        case "center":
+            return { x: 0, y: 0 };
+        case "top-left":
+            return { x: -halfW, y: -halfH };
+        case "top-right":
+            return { x: halfW, y: -halfH };
+        case "bottom-left":
+            return { x: -halfW, y: halfH };
+        case "bottom-right":
+            return { x: halfW, y: halfH };
+        default:
+            return { x: 0, y: 0 };
+    }
+}
+
+/**
+ * Convert coordinates from a specific origin to center-based coordinates
+ * @param {number} x - X coordinate relative to origin
+ * @param {number} y - Y coordinate relative to origin
+ * @param {string} origin - Origin type
+ * @param {number} width - Rectangle width
+ * @param {number} height - Rectangle height
+ * @returns {{x: number, y: number}} Center-based coordinates
+ */
+export function originToCenter(x, y, origin, width, height) {
+    const offset = getOriginOffset(origin, width, height);
+    return {
+        x: x - offset.x,
+        y: y - offset.y
+    };
+}
+
+/**
+ * Convert coordinates from center-based to a specific origin
+ * @param {number} x - X coordinate at center
+ * @param {number} y - Y coordinate at center
+ * @param {string} origin - Target origin type
+ * @param {number} width - Rectangle width
+ * @param {number} height - Rectangle height
+ * @returns {{x: number, y: number}} Coordinates relative to origin
+ */
+export function centerToOrigin(x, y, origin, width, height) {
+    const offset = getOriginOffset(origin, width, height);
+    return {
+        x: x + offset.x,
+        y: y + offset.y
+    };
+}
+
