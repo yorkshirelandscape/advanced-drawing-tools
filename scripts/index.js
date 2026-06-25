@@ -1,5 +1,5 @@
-import { MODULE_ID, ORIGIN_TYPES } from "./const.js";
-import { cleanData, centerToOrigin, originToCenter } from "./utils.js";
+import { MODULE_ID } from "./const.js";
+import { cleanData } from "./utils.js";
 
 import "./config.js";
 import "./controls.js";
@@ -34,27 +34,6 @@ Hooks.on("preCreateDrawing", (document) => {
 });
 
 Hooks.on("preUpdateDrawing", (document, data) => {
-    // Handle origin-based coordinate conversion
-    const hasXY = "x" in data || "y" in data;
-    if (hasXY) {
-        const isCmdHeld = game.keyboard.isModifierActive("Control");
-        const origin = isCmdHeld ? ORIGIN_TYPES.CENTER : foundry.utils.getProperty(document, `flags.${MODULE_ID}.origin`) ?? ORIGIN_TYPES.TOP_LEFT;
-        
-        // Only apply conversion if not already center-based
-        if (origin !== ORIGIN_TYPES.CENTER) {
-            const width = data.shape?.width ?? document.shape.width;
-            const height = data.shape?.height ?? document.shape.height;
-            
-            // Convert from origin-based coordinates to center-based
-            const x = "x" in data ? data.x : document.x;
-            const y = "y" in data ? data.y : document.y;
-            const centerCoords = originToCenter(x, y, origin, width, height);
-            
-            if ("x" in data) data.x = centerCoords.x;
-            if ("y" in data) data.y = centerCoords.y;
-        }
-    }
-    
     cleanData(preProcess(data), { inplace: true, deletionKeys: true, partial: true });
 });
 

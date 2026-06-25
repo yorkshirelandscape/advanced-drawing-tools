@@ -1,17 +1,6 @@
 export const MODULE_ID = "advanced-drawing-tools";
 export const MODULE_NAME = "Advanced Drawing Tools";
-
-// Origin types for coordinate system
-export const ORIGIN_TYPES = {
-    CENTER: "center",
-    TOP_LEFT: "top-left",
-    TOP_RIGHT: "top-right",
-    BOTTOM_LEFT: "bottom-left",
-    BOTTOM_RIGHT: "bottom-right"
-};
-
 export const DEFAULT_FLAGS = Object.freeze({
-    [`flags.${MODULE_ID}.origin`]: ORIGIN_TYPES.CENTER,
     [`flags.${MODULE_ID}.invisible`]: false,
     [`flags.${MODULE_ID}.fillStyle.texture.height`]: null,
     [`flags.${MODULE_ID}.fillStyle.texture.width`]: null,

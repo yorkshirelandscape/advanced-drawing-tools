@@ -1,21 +1,4 @@
-import { MODULE_ID, MODULE_NAME, ORIGIN_TYPES } from "./const.js";
-
-// SVG icons for each origin
-const ORIGIN_ICONS = {
-    [ORIGIN_TYPES.CENTER]: `<svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="8" fill="currentColor"/></svg>`,
-    [ORIGIN_TYPES.TOP_LEFT]: `<svg viewBox="0 0 24 24" width="16" height="16"><polygon points="0,0 24,0 0,24" fill="currentColor"/></svg>`,
-    [ORIGIN_TYPES.TOP_RIGHT]: `<svg viewBox="0 0 24 24" width="16" height="16"><polygon points="24,0 24,24 0,0" fill="currentColor"/></svg>`,
-    [ORIGIN_TYPES.BOTTOM_LEFT]: `<svg viewBox="0 0 24 24" width="16" height="16"><polygon points="0,0 0,24 24,24" fill="currentColor"/></svg>`,
-    [ORIGIN_TYPES.BOTTOM_RIGHT]: `<svg viewBox="0 0 24 24" width="16" height="16"><polygon points="24,24 24,0 0,24" fill="currentColor"/></svg>`
-};
-
-const ORIGIN_CYCLE = [
-    ORIGIN_TYPES.CENTER,
-    ORIGIN_TYPES.TOP_LEFT,
-    ORIGIN_TYPES.TOP_RIGHT,
-    ORIGIN_TYPES.BOTTOM_LEFT,
-    ORIGIN_TYPES.BOTTOM_RIGHT
-];
+import { MODULE_ID, MODULE_NAME } from "./const.js";
 
 Hooks.on("renderDrawingHUD", (hud, root) => {
     // Handle both v12 (jQuery) and v13 (HTMLElement) 
@@ -24,29 +7,6 @@ Hooks.on("renderDrawingHUD", (hud, root) => {
 
     const leftCol = element.querySelector(".col.left");
     if (!leftCol) return;
-
-    // Add origin button to left column
-    const currentOrigin = foundry.utils.getProperty(hud.object.document, `flags.${MODULE_ID}.origin`) ?? ORIGIN_TYPES.TOP_LEFT;
-    
-    const originButton = document.createElement("div");
-    originButton.classList.add("control-icon");
-    originButton.setAttribute("title", `Origin: ${currentOrigin}`);
-    originButton.dataset.action = `${MODULE_ID}.origin`;
-    originButton.innerHTML = ORIGIN_ICONS[currentOrigin];
-    
-    originButton.addEventListener("click", async (event) => {
-        const currentIndex = ORIGIN_CYCLE.indexOf(currentOrigin);
-        const nextIndex = (currentIndex + 1) % ORIGIN_CYCLE.length;
-        const nextOrigin = ORIGIN_CYCLE[nextIndex];
-        
-        await hud.object.document.update({
-            flags: {
-                [MODULE_ID]: { origin: nextOrigin }
-            }
-        });
-    });
-    
-    leftCol.appendChild(originButton);
 
     const edit = document.createElement("div");
     edit.classList.add("control-icon");
