@@ -11,7 +11,7 @@ export const ORIGIN_TYPES = {
 };
 
 export const DEFAULT_FLAGS = Object.freeze({
-    [`flags.${MODULE_ID}.origin`]: ORIGIN_TYPES.TOP_LEFT,
+    [`flags.${MODULE_ID}.origin`]: ORIGIN_TYPES.CENTER,
     [`flags.${MODULE_ID}.invisible`]: false,
     [`flags.${MODULE_ID}.fillStyle.texture.height`]: null,
     [`flags.${MODULE_ID}.fillStyle.texture.width`]: null,

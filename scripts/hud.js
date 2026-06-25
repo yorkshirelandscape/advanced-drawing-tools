@@ -2,7 +2,7 @@ import { MODULE_ID, MODULE_NAME, ORIGIN_TYPES } from "./const.js";
 
 // SVG icons for each origin
 const ORIGIN_ICONS = {
-    [ORIGIN_TYPES.CENTER]: `<svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>`,
+    [ORIGIN_TYPES.CENTER]: `<svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="8" fill="currentColor"/></svg>`,
     [ORIGIN_TYPES.TOP_LEFT]: `<svg viewBox="0 0 24 24" width="16" height="16"><polygon points="0,0 24,0 0,24" fill="currentColor"/></svg>`,
     [ORIGIN_TYPES.TOP_RIGHT]: `<svg viewBox="0 0 24 24" width="16" height="16"><polygon points="24,0 24,24 0,0" fill="currentColor"/></svg>`,
     [ORIGIN_TYPES.BOTTOM_LEFT]: `<svg viewBox="0 0 24 24" width="16" height="16"><polygon points="0,0 0,24 24,24" fill="currentColor"/></svg>`,
@@ -46,7 +46,7 @@ Hooks.on("renderDrawingHUD", (hud, root) => {
         });
     });
     
-    leftCol.insertBefore(originButton, leftCol.firstChild);
+    leftCol.appendChild(originButton);
 
     const edit = document.createElement("div");
     edit.classList.add("control-icon");
